@@ -61,7 +61,7 @@ export default function Header() {
               <NavLink className="logo-brand" to="/">
                 <img
                   className="img-logo"
-                  src="./Images/image3.png"
+                  src="./images/image3.png"
                   alt="logo"
                 />
               </NavLink>
