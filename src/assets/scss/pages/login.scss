@@ -1,0 +1,59 @@
+@import "../base/base";
+@import "../themes/variable";
+@import "../components/input.scss";
+@import "../components/login_button.scss";
+@import "../components/label.scss";
+.login{
+    .container{
+        .login-content{
+            margin-top: 60px;
+            h3{
+                font-size: $midlarge;
+                margin-bottom: 42px;
+            }
+            hr{
+                margin-bottom: 50px;
+            }
+            .form-login{
+                margin: 0 auto;
+                width: 40%;
+                // background-color: rgba(3,3,3,.1);
+                padding: 20px;
+                outline: none;
+                .form-group{
+                    label{
+                        @include custom-label;
+
+                    }
+                    input{
+                        @include custom-input;
+                    }
+                    .login-facebook{
+                        @include facebook-btn;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .fa-facebook{
+                            font-size: $midlarge;
+                            margin-right: 10px;
+                        }
+                    }
+                   
+                } .submit-form-group{
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    flex-flow: row;
+                    .register-link{
+                        color: $link-color;
+                        text-decoration: none;
+                        margin-right: 20px
+                    }
+                    .loginBtn{
+                        @include login-btn;
+                    }
+                }
+            }
+        }
+    }
+}

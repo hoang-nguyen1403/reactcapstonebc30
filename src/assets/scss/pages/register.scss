@@ -1,0 +1,76 @@
+@import "../base/_base";
+@import "../themes/variable";
+@import "../components/input.scss";
+@import "../components/login_button.scss";
+
+.register{
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    .header{
+        @include text($dark-text-color, $regular, $midlarge);
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+    .loading{
+        display: none;
+        #homePage{
+            display: none;
+            text-decoration: none;
+            color: "green";
+        }
+    }
+    #registerForm{
+        label {
+            @include custom-label;
+        }
+        input{
+            @include custom-input;
+        }
+        .password-box{
+            display: block;
+            position: relative;
+            .eye{
+                position: absolute;
+                top: 25%;
+                right: 2%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                transition: all 0.5s ease;
+                &:hover{
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+                
+            }
+        }
+        .gender-box{
+            padding-top: 30px;
+            display: flex;
+            justify-content:left;
+            align-items: center;
+            flex-direction: row;
+            
+            input{
+                position: relative;
+                margin: 0 10px;
+                width: $medium;
+                height: $medium;
+                color: $form-border-color;
+                border-color: $form-border-color;
+                background-color: $form-border-color;
+                
+            }
+            
+              
+        }
+        .registerBtn{
+            @include login-btn;
+        }
+    }
+
+}

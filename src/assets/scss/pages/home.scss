@@ -2,9 +2,6 @@
 @import "../themes/variable";
 
 .header {
-    .container {
-      
-    }
     .navbar-header {
       background-color: $bg-dark;
       padding-top: 10px;
@@ -208,15 +205,14 @@
               left: 0;
 
               .product-title {
-                @include text($dark-text-color, $light, $medium);
+                @include text($dark-text-color, $light, $small);
                 padding: 0 0 8px 23px;
                 margin: 0;
               }
               .product-description {
-                @include text($sub-title-color, $light, $small);
-                padding: 0;
+                @include text($sub-title-color, $regular, $xxsmall);
                 padding: 0 0 8px 23px;
-                margin: 0;
+                margin: 0 10px 0 0;
               }
             }
           }

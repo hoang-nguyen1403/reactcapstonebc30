@@ -1,0 +1,10 @@
+@import "../base/base";
+@mixin custom-input{
+    background: rgba(33, 33, 33, 0.08);
+    border-radius: 4px 4px 0px 0px;
+    padding: 16px 12px 14px 14px;
+    border: none;
+    background-color: rgba(33, 33, 33, 0.08);
+    margin-bottom: 10px;
+
+}

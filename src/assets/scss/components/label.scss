@@ -1,0 +1,7 @@
+@import "../base/base";
+@mixin custom-label {
+  font-size: $xsmall;
+  font-weight: $mediumW;
+  color: $login-text-color;
+  margin-bottom: 5px;
+}

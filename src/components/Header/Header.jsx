@@ -1,7 +1,57 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { logOut } from "../../redux/reducers/userReducer";
 
 export default function Header() {
+  const { userLogin } = useSelector((state) => state.userReducer);
+  console.log(userLogin);
+  const renderLogin = () => {
+    if (!userLogin) {
+      return (
+        <>
+          <NavLink className="nav-link" to="/login">
+            <i className="fa-solid fa-user" /> <span>Login</span>
+          </NavLink>
+          <NavLink to="/register">
+            <span>Register</span>
+          </NavLink>
+        </>
+      );
+    }
+    return (
+      <>
+        <div className="nav-item dropdown">
+          <NavLink
+            className="nav-link dropdown-toggle" to="/profile"
+            id="navbarDarkDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Hello {userLogin.name}
+          </NavLink>
+          <ul
+            className="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="navbarDarkDropdownMenuLink"
+          >
+            <li>
+              <NavLink className="dropdown-item" to="/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              <button className="dropdown-item" href="#" onClick={()=>{
+                logOut()
+              }}> 
+                Log out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </>
+    );
+  };
   return (
     <header className="header">
       <div className="navbar-header">
@@ -18,18 +68,13 @@ export default function Header() {
             </div>
             <div className="col">
               <div className="header-items">
-                <div className="shopping-cart">
+                <NavLink className="shopping-cart" to="/cart">
                   <i className="fa-solid fa-cart-shopping" />
-                  <p id="cart-number" className="cart-number">
-                    1
-                  </p>
-                </div>
-                <NavLink to="/LogIn">
-                  <i className="fa-solid fa-user" /> <span>Login</span>
+                  <span id="cart-number" className="cart-number">
+                    (1)
+                  </span>
                 </NavLink>
-                <NavLink to="/register">
-                  <span>Register</span>
-                </NavLink>
+                {renderLogin()}
               </div>
             </div>
           </div>
@@ -43,7 +88,7 @@ export default function Header() {
                 Home
               </NavLink>
               <NavLink to="/man" className="menu-item">
-                Man 
+                Man
               </NavLink>
               <NavLink to="/women" className="menu-item">
                 Women

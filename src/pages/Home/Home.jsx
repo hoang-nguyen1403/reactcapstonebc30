@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import DetailCard from "../../components/DetailCard/DetailCard";
 import { getProductAPI } from "../../redux/reducers/productReducer";
 
 export default function Home() {
   const dispatch = useDispatch();
   const { arrProduct } = useSelector((state) => state.productReducer);
-  console.log(arrProduct);
 
   const getAllProductAPI = () => {
     const actionThunk = getProductAPI();
@@ -24,23 +24,8 @@ export default function Home() {
           ? item.shortDescription.substring(0, 30)
           : "...";
       return (
-        <div className="product-card col-4" key={index}>
-          <div className="card-body">
-            <img src={item.image} alt />
-            <div className="titles">
-              <h3 className="product-title">{item.name}</h3>
-              <p className="product-description">{shortDescription}</p>
-            </div>
-          </div>
-          <div className="card-actions">
-            <a
-              className="btn-buy"
-              href="./views/detail.html?productid=${product.id}"
-            >
-              Buy Now
-            </a>
-            <p className="price-text">{item.price}</p>
-          </div>
+        <div className="col-4" key={index}>
+          <DetailCard id={item.id} image={item.image} name={item.name} shortDescription={item.shortDescription} price={item.price} ></DetailCard>
         </div>
       );
     });
@@ -95,7 +80,7 @@ export default function Home() {
               <div className="carousel-item">
                 <div className="content row">
                   <div className="main-img col-7">
-                    <img src="./Images/image 4.png" alt />
+                    <img src="./Images/image 4.png" />
                   </div>
                   <div className="description col-5">
                     <h3 className="title">Nike Mercurial Superfly</h3>
@@ -111,7 +96,7 @@ export default function Home() {
               <div className="carousel-item">
                 <div className="content row">
                   <div className="main-img col-7">
-                    <img src="./Images/image 4.png" alt />
+                    <img src="./Images/image 4.png"  />
                   </div>
                   <div className="description col-5">
                     <h3 className="title">Nike Mercurial Superfly</h3>
