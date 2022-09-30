@@ -66,7 +66,7 @@ export default function Home() {
               <div className="carousel-item active">
                 <div className="content row">
                   <div className="main-img col-7">
-                    <img src="./Images/image 4.png" alt="img4" />
+                    <img src="./Images/image_4.png" alt="img4" />
                   </div>
                   <div className="description col-5">
                     <h3 className="title">Nike Mercurial Superfly</h3>
@@ -80,7 +80,7 @@ export default function Home() {
               <div className="carousel-item">
                 <div className="content row">
                   <div className="main-img col-7">
-                    <img src="./Images/image 4.png" />
+                    <img src="./Images/image_4.png" />
                   </div>
                   <div className="description col-5">
                     <h3 className="title">Nike Mercurial Superfly</h3>
