@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DetailCard from "../../components/DetailCard/DetailCard";
 
+import { getProductAPI } from "../../redux/reducers/productReducer";
+
+
 export default function Searching() {
+    const dispatch = useDispatch();
   const { arrProduct } = useSelector((state) => state.productReducer);
   console.log(arrProduct);
+
+  const getAllProductAPI = () => {
+    const actionThunk = getProductAPI();
+    dispatch(actionThunk);
+    // dispatch(thunkAction);
+  };
+  useEffect(() => {
+    getAllProductAPI();
+  }, []);
+
   const renderSearchedProduction = (searchedProduct) => {
     return searchedProduct.map((item, index) => {
       let shortDescription =
@@ -29,7 +43,7 @@ export default function Searching() {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            <p>search</p>
+            <p className="search-label">search</p>
             <input id="searchingBar" type="text" />
             <button>Search</button>
           </div>

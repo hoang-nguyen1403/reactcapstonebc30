@@ -1,0 +1,35 @@
+@import "../base/_base";
+@import "../themes/variable";
+@import "../components/input.scss";
+@import "../components/login_button.scss";
+
+.searching{
+    margin-top: 20px;
+    .col-6{
+        .search-label{
+            margin: 0;
+            padding: 0;
+            @include custom-label;
+        }
+        input{
+            @include custom-input;
+            width: 60%;
+        }
+        button{
+            
+            @include login-btn;
+            margin-left: 20px;
+        }
+    }
+    .header{
+        margin-top: 50px;
+        height: 74px;
+        width: 100%;
+        background: $gradient-color;
+        color: $light-text-color;
+        line-height: 74px;
+        font-size: $large;
+        font-weight: $mediumW;  
+        padding-left: 20px;
+    }
+}
