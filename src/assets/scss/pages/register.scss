@@ -49,24 +49,7 @@
             }
         }
         .gender-box{
-            padding-top: 30px;
-            display: flex;
-            justify-content:left;
-            align-items: center;
-            flex-direction: row;
-            
-            input{
-                position: relative;
-                margin: 0 10px;
-                width: $medium;
-                height: $medium;
-                color: $form-border-color;
-                border-color: $form-border-color;
-                background-color: $form-border-color;
-                
-            }
-            
-              
+            @include gender-box;     
         }
         .registerBtn{
             @include login-btn;

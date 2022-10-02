@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios';
-import { ACCESS_TOKEN, getStore, getStoreJson, setCookie, setStore, setStoreJson, USER_LOGIN } from '../../utils/tools';
+import { ACCESS_TOKEN, getStore, getStoreJson, setStore, setStoreJson, USER_LOGIN } from '../../utils/tools';
 import { history } from '../../index';
 import { http } from '../../utils/tools';
 
@@ -53,7 +52,6 @@ export const logOut = ()=>{
 
 
 export const getProfileAPI = (accessToken = getStore(ACCESS_TOKEN)) => {
-    console.log(accessToken);
     return async dispatch => {
         try {
             const result = await http.post('users/getProfile')

@@ -58,10 +58,10 @@ export const http = axios.create({
 
 http.interceptors.request.use(
     config => {
-        const token = getCookie(ACCESS_TOKEN)
+        const token = getStore(ACCESS_TOKEN)
         config.headers = {...config.headers, 
-            ['Authorization']: `Bearer ${token}`
-            // ['TokenCybersoft']: TOKEN_CYBERSOFT
+            ['Authorization']: `Bearer ${token}`,
+            ['TokenCybersoft']: TOKEN_CYBERSOFT
         }
       return config
     },
@@ -72,10 +72,8 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
     response => {
-        console.log(response)
         return response
       }, err=>{
-          console.log(err.response.status   )
           if(err.response.status === 400 || err.response.status === 404 ){
               history.push('/')
               return Promise.reject(err)

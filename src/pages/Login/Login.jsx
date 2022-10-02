@@ -28,7 +28,6 @@ export default function Login() {
     onSubmit: (values) => {
       
       dispatch(logInAPI(values))
-      console.log(values);
     },
   });
   return (

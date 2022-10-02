@@ -17,10 +17,6 @@ export default function Home() {
     getAllProductAPI();
   }, []);
   const  carouselImg = {image: "./images/image_4.png"}
-  if(arrProduct){
-    const carouselImg = {...arrProduct[0]}
-    console.log(carouselImg);
-  }
   
   const renderProduct = () => {
     return arrProduct.slice(0, 6).map((item, index) => {

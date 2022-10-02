@@ -5,7 +5,6 @@ import { logOut } from "../../redux/reducers/userReducer";
 
 export default function Header() {
   const { userLogin } = useSelector((state) => state.userReducer);
-  console.log(userLogin);
   const renderLogin = () => {
     if (!userLogin) {
       return (

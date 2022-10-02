@@ -1,7 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import { changeEyeIcon, registerAPI } from "../../redux/reducers/registerReducer";
+import {
+  changeEyeIcon,
+  registerAPI,
+} from "../../redux/reducers/registerReducer";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
@@ -32,7 +35,7 @@ export default function Register() {
       phone: "",
       password: "",
       passwordConfirmation: "",
-      gender: ""
+      gender: "",
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
@@ -46,8 +49,9 @@ export default function Register() {
         .required("password should'nt emtry")
         .min(2, "password from 2 to 32")
         .max(32, "password from 2 to 32"),
-      passwordConfirmation:  Yup.string().required('Please retype your password.')
-      .oneOf([Yup.ref('password')], 'Your passwords do not match.'),
+      passwordConfirmation: Yup.string()
+        .required("Please retype your password.")
+        .oneOf([Yup.ref("password")], "Your passwords do not match."),
       name: Yup.string()
         .matches(/^[A-Za-z ]*$/, "Please enter valid name")
         .max(40)
@@ -59,7 +63,7 @@ export default function Register() {
     }),
     onSubmit: (values) => {
       console.log(values);
-      dispatch(registerAPI(values))
+      dispatch(registerAPI(values));
     },
   });
   return (
@@ -94,7 +98,8 @@ export default function Register() {
                   id="name"
                   name="name"
                   placeholder="name"
-                  onChange={frm.handleChange} onBlur={frm.handleBlur}
+                  onChange={frm.handleChange}
+                  onBlur={frm.handleBlur}
                 />
                 {frm.errors.name ? (
                   <span className="text-danger">{frm.errors.name}</span>
@@ -113,7 +118,8 @@ export default function Register() {
                     id="password"
                     name="password"
                     placeholder="password"
-                    onChange={frm.handleChange} onBlur={frm.handleBlur}
+                    onChange={frm.handleChange}
+                    onBlur={frm.handleBlur}
                   />
                   <button
                     className="eye"
@@ -143,7 +149,8 @@ export default function Register() {
                   id="phone"
                   id="phone"
                   placeholder="phone"
-                  onChange={frm.handleChange} onBlur={frm.handleBlur}
+                  onChange={frm.handleChange}
+                  onBlur={frm.handleBlur}
                 />
                 {frm.errors.phone ? (
                   <span className="text-danger">{frm.errors.phone}</span>
@@ -158,7 +165,8 @@ export default function Register() {
                   className="form-control"
                   id="passwordConfirmation"
                   name="passwordConfirmation"
-                  onChange={frm.handleChange} onBlur={frm.handleBlur}
+                  onChange={frm.handleChange}
+                  onBlur={frm.handleBlur}
                 />
                 {frm.errors.passwordConfirmation ? (
                   <span className="text-danger">
@@ -171,11 +179,25 @@ export default function Register() {
               <div className="form-group col-6">
                 <div className="gender-box">
                   <label>Gender</label>
-                  <input type="radio" name="gender" id="male" value="male" onChange={frm.handleChange} onBlur={frm.handleBlur}/>
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    value="male"
+                    onChange={frm.handleChange}
+                    onBlur={frm.handleBlur}
+                  />
                   <label className="form-check-label" htmlFor="male">
                     Male
                   </label>
-                  <input type="radio" name="gender" id="female"  value="female"  onChange={frm.handleChange} onBlur={frm.handleBlur}/>
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                    onChange={frm.handleChange}
+                    onBlur={frm.handleBlur}
+                  />
                   <span className="checkmark"></span>
                   <label className="form-check-label" htmlFor="male">
                     Fmale
