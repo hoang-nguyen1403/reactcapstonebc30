@@ -67,6 +67,12 @@ export default function Header() {
             </div>
             <div className="col">
               <div className="header-items">
+              <NavLink className="shopping-cart" to="/searching">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                  <span id="cart-number" className="cart-number">
+                    Search
+                  </span>
+                </NavLink>
                 <NavLink className="shopping-cart" to="/cart">
                   <i className="fa-solid fa-cart-shopping" />
                   <span id="cart-number" className="cart-number">

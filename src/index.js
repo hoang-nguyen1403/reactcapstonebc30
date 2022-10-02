@@ -17,6 +17,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Detail from "./pages/Detail/Detail";
 import Profile from "./pages/Profile/Profile";
+import Cart from "./pages/Cart/Cart";
+import Searching from "./pages/Searching/Searching";
 export const history = createBrowserHistory({ window });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -32,6 +34,8 @@ root.render(
           <Route path="LogIn" element={<Login></Login>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="profile" element={<Profile></Profile>}></Route>
+          <Route path="cart" element={<Cart></Cart>}></Route>
+          <Route path="searching" element={<Searching></Searching>}></Route>
         </Route>
       </Routes>
     </HistoryRouter>
